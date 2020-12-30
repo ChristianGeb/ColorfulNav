@@ -8,9 +8,9 @@ const nav5 = document.getElementById("nav-5");
 const navItems = [nav1, nav2, nav3, nav4, nav5];
 
 function navAnimation(direction1, direction2) {
-  navItems.forEach((nav, i)) => {
-    nav.classList.replace(`slide-${direction1}-${i}`, `slide-${direction2}-${i}`)
-  }
+  navItems.forEach((nav, i) => {
+    nav.classList.replace(`slide-${direction1}-${i + 1}`, `slide-${direction2}-${i + 1}`)
+  });
 }
 
 function toggleNav() {
@@ -27,8 +27,6 @@ function toggleNav() {
 }
 
 menuBars.addEventListener("click", toggleNav);
-nav1.addEventListener("click", toggleNav);
-nav2.addEventListener("click", toggleNav);
-nav3.addEventListener("click", toggleNav);
-nav4.addEventListener("click", toggleNav);
-nav5.addEventListener("click", toggleNav);
+navItems.forEach((nav) => {
+  nav.addEventListener("click", toggleNav);
+});
